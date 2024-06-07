@@ -5,14 +5,17 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
 
     public final int PORT = 9000;
+    public static List<String> clients = new ArrayList<>();
+    public static ArrayList<Client> clientSocket = new ArrayList();
     public ExecutorService service = Executors.newCachedThreadPool();
-    public ArrayList<Client> clientSocket = new ArrayList();
+
 
     public static void main(String[] args) {
         Server myServer = new Server();
