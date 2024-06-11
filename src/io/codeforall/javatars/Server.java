@@ -5,22 +5,25 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
 
-    public final int PORT = 9000;
-    public static List<String> clients = new ArrayList<>();
-    public static ArrayList<Client> clientSocket = new ArrayList();
-    public ExecutorService service = Executors.newCachedThreadPool();
+    private final int PORT = 9000;
+    private ExecutorService service = Executors.newCachedThreadPool();
+
+    public static Set<String> userNames = new HashSet<>();
+    public static ArrayList<Client> clients = new ArrayList();
 
 
     public static void main(String[] args) {
         Server myServer = new Server();
         myServer.init();
     }
+
 
     public void init() {
         try {
@@ -34,7 +37,7 @@ public class Server {
 
                 Client client = new Client(clientSocket, this);
                 service.submit(client);
-                this.clientSocket.add(client);
+                this.clients.add(client);
                 System.out.println("Accepted");
 
             }
@@ -43,13 +46,24 @@ public class Server {
         }
     }
 
+
+    public void removeClients(String username) {
+        for (Client client : clients) {
+            if (username.equals(client.getUserName())) {
+                userNames.remove(client.getUserName());
+                clients.remove(client);
+            }
+        }
+    }
+
+
     public void sendAll(String input, Client client) {
-        for (int i = 0; i < clientSocket.size(); i++) {
-            if (clientSocket.get(i).equals(client)) {
+        for (int i = 0; i < clients.size(); i++) {
+            if (clients.get(i).equals(client)) {
                 continue;
             }
             try {
-                PrintWriter out = new PrintWriter(clientSocket.get(i).getSocket().getOutputStream(), true);
+                PrintWriter out = new PrintWriter(clients.get(i).getSocket().getOutputStream(), true);
                 out.println(input);
             } catch (IOException e) {
                 System.out.println("ERROR SEND ALL" + e);
@@ -57,7 +71,3 @@ public class Server {
         }
     }
 }
-
-
-
-
