@@ -17,11 +17,11 @@ Enter the build directory
 Open the jar
 - java -jar Simple-Chat.jar
 
-This will iniciate the server 
+This will initiate the server
 
 After and using another terminal window you can enter the chat as a user using netcat
 
-- Windowns - ncat localhost 9000
+- Windows - ncat localhost 9000
 - MAC - nc localhost 9000
 
 
