@@ -9,11 +9,9 @@ ____________________________________________________
 How to Run the Project
 
 Clone the Repository:
-
 - git clone https://github.com/your-username/chat-server.git
 
 Enter the build directory
-
 - using the terminal enter directory build inside the project
 
 Open the jar
@@ -21,19 +19,19 @@ Open the jar
 
 This will iniciate the server 
 
-After using another terminal window you can enter the chat as a user using netcat
+After and using another terminal window you can enter the chat as a user using netcat
 
-Windowns - ncat localhost 9000
-MAC - nc localhost 9000
+- Windowns - ncat localhost 9000
+- MAC - nc localhost 9000
 
 
 List of Commands
-/help: Displays a list of available commands.
-/users: Lists all online users.
-/whisper: Initiates a private chat with a specified user.
-/block: Blocks a specified user.
-/unblock: Unblocks a specified user.
-/bye: Disconnects from the server.
+- /help: Displays a list of available commands.
+- /users: Lists all online users.
+- /whisper: Initiates a private chat with a specified user.
+- /block: Blocks a specified user.
+- /unblock: Unblocks a specified user.
+- /bye: Disconnects from the server.
 
 ______________________________________________________________________________________
 
