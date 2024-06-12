@@ -15,14 +15,8 @@ public class Server {
     private final int PORT = 9000;
     private ExecutorService service = Executors.newCachedThreadPool();
 
-    public static Set<String> userNames = new HashSet<>();
+    public static Set<String> usernames = new HashSet<>();
     public static ArrayList<Client> clients = new ArrayList();
-
-
-    public static void main(String[] args) {
-        Server myServer = new Server();
-        myServer.init();
-    }
 
 
     public void init() {
@@ -49,8 +43,8 @@ public class Server {
 
     public void removeClients(String username) {
         for (Client client : clients) {
-            if (username.equals(client.getUserName())) {
-                userNames.remove(client.getUserName());
+            if (username.equals(client.getUsername())) {
+                usernames.remove(client.getUsername());
                 clients.remove(client);
             }
         }
@@ -59,7 +53,7 @@ public class Server {
 
     public void sendAll(String input, Client client) {
         for (int i = 0; i < clients.size(); i++) {
-            if (clients.get(i).equals(client)) {
+            if (clients.get(i).equals(client) || Client.blockedUsers.contains(client.getUsername())) {
                 continue;
             }
             try {
