@@ -19,6 +19,12 @@ public class Server {
     public static ArrayList<Client> clients = new ArrayList();
 
 
+    public static void main(String[] args) {
+        Server myServer = new Server();
+        myServer.init();
+    }
+
+
     public void init() {
         try {
             ServerSocket serverSocket = new ServerSocket(PORT);
