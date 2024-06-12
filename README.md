@@ -4,7 +4,7 @@ A Simple Chat to comunicate using your terminal
 
 This project is a multi-client chat server implemented in Java. It allows multiple clients to connect to a server and engage in a chatroom where they can send messages to all connected users, send private messages, and manage blocked users.
 
-
+____________________________________________________
 
 How to Run the Project
 
