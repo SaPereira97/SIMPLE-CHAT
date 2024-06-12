@@ -9,7 +9,7 @@ ____________________________________________________
 How to Run the Project
 
 Clone the Repository:
-- git clone https://github.com/your-username/chat-server.git
+- git clone https://github.com/SaPereira97/Simple-Chat.git
 
 Enter the build directory
 - using the terminal enter directory build inside the project
